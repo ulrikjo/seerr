@@ -12,7 +12,7 @@ permissions:
   contents: read
 
 env:
-  DOCKER_HUB: seerr/seerr
+  DOCKER_HUB: ulrikjoh/build-seer-danish
 
 concurrency:
   group: preview-${{ github.ref }}
@@ -93,8 +93,8 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef # v3.6.0
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_TOKEN }}
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PAT }}
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef # v3.6.0
